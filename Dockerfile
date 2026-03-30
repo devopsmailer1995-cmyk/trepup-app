@@ -39,8 +39,8 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(port, () => {
-  console.log(\`✅ Trepup App listening on port \${port}\`);
-  console.log(\`📦 CDN Base: \${process.env.NEXT_PUBLIC_MEDIA_CDN_BASE || 'Not Set'}\`);
+  console.log('✅ Trepup App listening on port ' + port);
+  console.log('📦 CDN Base: ' + (process.env.NEXT_PUBLIC_MEDIA_CDN_BASE || 'Not Set'));
 });
 EOF
 
