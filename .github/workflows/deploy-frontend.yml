@@ -8,6 +8,7 @@ on:
 
 env:
   AWS_REGION: us-east-1
+  AWS_ROLE_ARN: arn:aws:iam::939371275774:role/testrole2
   ECR_REPOSITORY: trepup-app
   ECS_CLUSTER: trepup-staging
   ECS_SERVICE: trepup-app
@@ -29,7 +30,7 @@ jobs:
       - name: Configure AWS credentials via OIDC
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::939371275774:role/testrole2
+          role-to-assume: ${{ env.AWS_ROLE_ARN }}
           role-session-name: github-actions-trepup-app
           aws-region: ${{ env.AWS_REGION }}
 
