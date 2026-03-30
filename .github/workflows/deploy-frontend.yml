@@ -55,9 +55,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: |
-            ${{ steps.image-tag.outputs.full_tag }}
-            ${{ steps.image-tag.outputs.latest_tag }}
+          tags: ${{ steps.image-tag.outputs.full_tag }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
           build-args: |
@@ -87,7 +85,7 @@ jobs:
 
       - name: Deployment summary
         run: |
-          echo "### Frontend Deployment Complete :rocket:" >> $GITHUB_STEP_SUMMARY
+          echo "### Frontend Deployment Complete :" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "- **Service**: ${{ env.ECS_SERVICE }}" >> $GITHUB_STEP_SUMMARY
           echo "- **Image**: ${{ steps.image-tag.outputs.tag }}" >> $GITHUB_STEP_SUMMARY
